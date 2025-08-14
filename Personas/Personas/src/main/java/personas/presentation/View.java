@@ -5,9 +5,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class View {
     Highlighter highlighter=new Highlighter(Color.green);
+    private ButtonGroup grupoSexos;
+
+
     private JTextField id;
     private JTextField nombre;
     private JRadioButton sexoMasculino;
@@ -23,6 +28,8 @@ public class View {
     private JCheckBox deporteCheckBox;
     private JCheckBox otroCheckBox;
     private JTextField otro;
+
+
 
     public JPanel getPanelPrincipal() {
         return PanelPrincipal;
@@ -41,6 +48,9 @@ public class View {
         deporteCheckBox.addMouseListener(highlighter);
         otroCheckBox.addMouseListener(highlighter);
         otro.addMouseListener(highlighter);
+        grupoSexos = new ButtonGroup();
+        grupoSexos.add(sexoFemenino);
+        grupoSexos.add(sexoMasculino);
 
 
 
@@ -83,7 +93,7 @@ public class View {
         cancelarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               // grupoSexos.clearSelection();
+               grupoSexos.clearSelection();
 
                 nombre.setText("");
                 id.setText("");
@@ -96,6 +106,15 @@ public class View {
                 otroCheckBox.setSelected(false);
                 otro.setText("");
 
+            }
+        });
+        nombre.addKeyListener(new KeyAdapter() {//para que no hayan numeros en el textfield del nombre
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (!Character.isLetter(c) && c != ' ' && c != '\b') {
+                    e.consume(); // Ignora el carácter
+                }
             }
         });
     }

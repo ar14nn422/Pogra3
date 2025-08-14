@@ -100,6 +100,7 @@
             <item value="Soltero"/>
             <item value="Casado"/>
             <item value="Divorciado"/>
+            <item value="Viudo"/>
           </model>
         </properties>
       </component>
@@ -210,7 +211,6 @@
   </grid>
   <buttonGroups>
     <group name="grupoSexos">
-      <member id="e68c7"/>
       <member id="e68c7"/>
       <member id="2af43"/>
     </group>
