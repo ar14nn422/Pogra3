@@ -14,7 +14,7 @@ public class GestorDatosMedicamentos {
 
     public void guardar(List<Medicamento> lista){
         try{
-            JAXBContext ctx = JAXBContext.newInstance(Medicamento.class);
+            JAXBContext ctx = JAXBContext.newInstance(ListaMedicamentos.class);
             Marshaller m = ctx.createMarshaller();
             m.marshal(new ListaMedicamentos(lista), archivo);
         }

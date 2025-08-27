@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.data.GestorDatosMedicamentos;
 import org.example.data.GestorDatosPacientes;
+import org.example.data.GestorDatosRecetas;
 import org.example.logic.DetalleReceta;
 import org.example.logic.Medicamento;
 import org.example.logic.Paciente;
@@ -45,10 +46,10 @@ public class Main {
         GestorDatosPacientes gestor2 = new GestorDatosPacientes();
         gestor2.guardar(lista2);
         System.out.println("Pacientes guardados en pacientes.xml");
-//
-//        GestorDatosReceta gestor3 = new GestorDatosReceta();
-//        gestor3.guardar(recetas);
-//        System.out.println("Recetas guardadas en recetas.xml");
+
+        GestorDatosRecetas gestor3 = new GestorDatosRecetas();
+        gestor3.guardar(recetas);
+        System.out.println("Recetas guardadas en recetas.xml");
 
 
         List<Medicamento> cargados = gestor.cargar();
@@ -68,18 +69,18 @@ public class Main {
                     ", Fecha Nacimiento: " + p.getFechaNacimiento() +
                     ", Teléfono: " + p.getTelefono());
         }
-//
-//        List<Receta> cargadas = gestor3.cargar();
-//        System.out.println("Recetas cargadas:");
-//        for (Receta r : cargadas) {
-//            System.out.println("ID: " + r.getId() +
-//                    ", PacienteID: " + r.getPacienteId() +
-//                    ", Fecha: " + r.getFecha());
-//            for (DetalleReceta d : r.getDetalles()) {
-//                System.out.println("  Medicamento: " + d.getMedicamentoCodigo() +
-//                        ", Cantidad: " + d.getCantidad() +
-//                        ", Indicaciones: " + d.getIndicaciones());
-//            }
-//        }
+
+        List<Receta> cargadas = gestor3.cargar();
+        System.out.println("Recetas cargadas:");
+        for (Receta r : cargadas) {
+            System.out.println("ID: " + r.getId() +
+                    ", PacienteID: " + r.getPacienteId() +
+                    ", Fecha: " + r.getFecha());
+            for (DetalleReceta d : r.getDetalles()) {
+                System.out.println("  Medicamento: " + d.getMedicamentoCodigo() +
+                        ", Cantidad: " + d.getCantidad() +
+                        ", Indicaciones: " + d.getIndicaciones());
+            }
+        }
     }
 }
