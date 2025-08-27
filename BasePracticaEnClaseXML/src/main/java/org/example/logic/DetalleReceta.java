@@ -1,6 +1,14 @@
 package org.example.logic;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+@XmlRootElement(name="detReceta")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DetalleReceta {
+
     private String medicamentoCodigo;
     private int cantidad;
     private String indicaciones;

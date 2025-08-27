@@ -2,9 +2,15 @@ package org.example.data;
 
 import org.example.logic.Paciente;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
-
+@XmlRootElement(name="listapacientes")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ListaPacientes {
+    @XmlElement(name="paciente")
     private List<Paciente> pacientes;
 
     public ListaPacientes() {}
